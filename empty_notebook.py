@@ -25,5 +25,30 @@
 # sauvé en Python
 
 # %%
-def foo():
-    print("hello world")
+import numpy as np
+import pandas as pd
+import matplolib.pyplot as plt
+from scipy import stats
+
+df = pd.read_csv("media/planetes.csv", skiprows = 96)
+df.head(7)
+
+
+# %%
+"""
+df.plot.hist(df["disc_year"], by =  df["discoverymethod"].unique())
+
+#on crée les colonnes avec le boléen la planète est découverte par la méthode
+discov = df["discoverymethod"].unique()
+year = df["disc_year"].unique()
+for i, meth in enumerate(discov):
+    df[meth] = np.zeros(df.shape[0], dtype=int) 
+    df.loc[df["discoverymethod"]==meth, meth] = 1
+df = df.set_index("disc_year")
+pd.DataFrame("disc_year", columns = meth, stacked = True).plot.bar()
+"""
+df.hist("disc_year", cumulative = True)
+
+# %%
+
+# %%
