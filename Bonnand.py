@@ -35,7 +35,9 @@ import pandas as pd
 # %%
 df = pd.read_csv("media/planetes.csv", skiprows = 96)
 
-df2 = df[["pl_rade", "pl_bmasse"]]
+
+
+df2 = df[["pl_rade", 'pl_bmasse']]
 df2= df2.dropna()
 df2["radius(km)"] = df2["pl_rade"]*6371
 df2["mass(kg)"] = df2["pl_bmasse"]*5.972*10**24
